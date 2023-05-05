@@ -1,9 +1,9 @@
 import React from 'react';
-import Input from './study/Input';
+import Useref from './study/Useref';
 
 function App() {
   return (
-    <Input />
+    <Useref />
   );
 }
 
