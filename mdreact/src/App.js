@@ -1,24 +1,25 @@
-import React from 'react';
-import UserList from './study/UserList';
+import React, { useRef } from "react";
+import UserList from "./study/UserList";
 
 function App() {
   const users = [
     {
       id: 1,
-      username: 'velopert',
-      email: 'public.velopert@gmail.com'
+      username: "velopert",
+      email: "public.velopert@gmail.com",
     },
     {
       id: 2,
-      username: 'tester',
-      email: 'tester@example.com'
+      username: "tester",
+      email: "tester@example.com",
     },
     {
       id: 3,
-      username: 'liz',
-      email: 'liz@example.com'
-    }
+      username: "liz",
+      email: "liz@example.com",
+    },
   ];
+  const nextId = useRef(4);
   return <UserList users={users} />;
 }
 export default App;
