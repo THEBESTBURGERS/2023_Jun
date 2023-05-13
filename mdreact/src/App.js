@@ -8,7 +8,7 @@ export default function App() {
     email: "",
   });
   const { username, email } = inputs;
-  
+
   const [users, setUsers] = useState([
     {
       id: 1,
@@ -58,6 +58,7 @@ export default function App() {
       id: nextId.current,
       username,
       email,
+      active: false,
     };
     setUsers(users.concat(user));
     setInputs({
@@ -69,6 +70,13 @@ export default function App() {
   const onRemove = (id) => {
     setUsers(users.filter((user) => user.id !== id));
   };
+  const onToggle = (id) => {
+    setUsers(
+      users.map((user) =>
+        user.id == id ? { ...user, active: !user.active } : user
+      )
+    );
+  };
   return (
     <>
       <CreateUser
@@ -77,7 +85,7 @@ export default function App() {
         onChange={onChange}
         onCreate={onCreate}
       />
-      <UserList users={users} onRemove={onRemove} />
+      <UserList users={users} onRemove={onRemove} onToggle={onToggle} />
     </>
   );
 }
